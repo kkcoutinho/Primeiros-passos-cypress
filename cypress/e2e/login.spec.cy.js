@@ -3,6 +3,7 @@
 // se o seletor mudar, teria que mudar o código todo, dessa forma muda somente a const
 //*** Lembre-se em selecionar seletores únicos e que não sejam alterados, usar classes, atributos de nome podem ser
 // alterados a qq momento pelo dev***
+// A url do projeto está em cypress.config.js
 
 import userData from '../fixtures/userData.json'
 
@@ -18,7 +19,7 @@ describe('Orange HRM Tests', () => {
 
 
   it('Login - Sucess', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(selectorsList.usernameField).type(userData.userSuccess.userName) 
     cy.get(selectorsList.passwordField).type(userData.userSuccess.password)
     cy.get(selectorsList.loginButton).click() 
@@ -29,7 +30,7 @@ describe('Orange HRM Tests', () => {
 
 
   it('Login - Fail', () => {
-    cy.visit('https://opensource-demo.orangehrmlive.com/web/index.php/auth/login')
+    cy.visit('/auth/login')
     cy.get(selectorsList.usernameField).type(userData.userFail.userName) 
     cy.get(selectorsList.passwordField).type(userData.userFail.password)
     cy.get(selectorsList.loginButton).click() 
