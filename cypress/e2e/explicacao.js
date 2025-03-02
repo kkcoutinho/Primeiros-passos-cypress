@@ -12,17 +12,7 @@
 // Atributo: Uma propriedade do elemento (id, class, name, href, etc.).
 // Seletor: A forma como selecionamos elementos (.classe, #id, [atributo="valor"]).
 
-
-
-    
-    /*/ Desefio: inserir informações nas caixas 
-    cy.get('.oxd-select-text-input').eq(0).click(); // Clica no primeiro dropdown
-    cy.contains('.oxd-select-dropdown', 'Brazilian').click();
-
-    cy.get('.oxd-select-text-input').eq(1).click();
-    cy.contains('.oxd-select-dropdown', 'Married').click() /*/
-
-    
+ 
 /*/
 // A classe nunca é a melhor forma de se usar, evite focar em textos como atributo, se tiver id é melhor
 
