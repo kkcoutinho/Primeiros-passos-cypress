@@ -12,6 +12,10 @@
 // Atributo: Uma propriedade do elemento (id, class, name, href, etc.).
 // Seletor: A forma como selecionamos elementos (.classe, #id, [atributo="valor"]).
 
+// GITIGNORE: é um arquivo que contém uma lista de arquivos e diretórios que você deseja ignorar.
+// O arquivo .gitignore é um arquivo de texto simples que informa ao Git quais arquivos ou pastas você deseja ignorar.
+// cria-se um arquivo (new file) .gitignore na raiz do projeto, e dentro dele coloca-se o nome dos arquivos e pastas 
+// que deseja ignorar, no geral node_modules, packge-lock.json
  
 /*/
 // A classe nunca é a melhor forma de se usar, evite focar em textos como atributo, se tiver id é melhor
