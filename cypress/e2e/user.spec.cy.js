@@ -10,26 +10,21 @@ import userData from '../fixtures/userData.json'
 import LoginPage from '../pages/loginPage'
 import dashboardPage from '../pages/dashboardPage'
 import menuPage from '../pages/menuPage'
+import MyInfoPage from '../pages/myInfoPage'
 
+//acessei: chances.js, cliquei em node, segui os passos para instalar o chance
+// npm install --save chance, depois siga os passos
+// usa-se o chance para gerar dados aleatórios, veja o link person, para gerar dados de pessoa
+const Chance = require('chance')
+
+const chance = new Chance()
 const loginPage = new LoginPage() 
 const dashboard = new dashboardPage()
 const menu = new menuPage()
+const myInfoPage = new MyInfoPage()
 
 
 describe ('Orange HRM Tests', () => {
-  const selectorsList = {
-    
-    
-    firstNameField: "[name='firstName']",
-    middleNameField: "[name='middleName']",
-    lastNameField: "[name='lastName']",
-    genericField: ".oxd-input--active",
-    genericComboBox: ".oxd-select-text--arrow",
-    dateField: "[placeholder='yyyy-dd-mm']",
-    dateCloseButtoN: ".--close",
-    submitButton: "[type='submit']"
-    
-  }
 
   it.only('User Info Update - Sucess', () => {
     loginPage.accessLoginPage() 
@@ -39,31 +34,11 @@ describe ('Orange HRM Tests', () => {
 
     menu.accessMyInfo()
 
-   
-    
-    cy.get(selectorsList.firstNameField).clear().type('FirstNameTest')
-    cy.get(selectorsList.lastNameField).clear().type('LastNameTest')
-    cy.get(selectorsList.genericField).eq(3).clear().type('IdTest')
-    cy.get(selectorsList.genericField).eq(4).clear().type('OtherIdTest')
-    cy.get(selectorsList.genericField).eq(5).clear().type('LicenseTest')
-    cy.get(selectorsList.genericField).eq(6).clear().type('2025-10-10')
-    cy.get(selectorsList.submitButton).eq(0).click({force: true})
-
-    cy.get('body').should('contain', 'Successfully Updated')
-    cy.get('.oxd-toast-close')
-
-    cy.get(selectorsList.genericComboBox).eq(0).click({force: true})
-    cy.get('.oxd-select-dropdown > :nth-child(8) > span').click()
-    cy.get(selectorsList.submitButton).eq(1).click({force: true})
-    cy.get(':nth-child(2) > span').click()
+    myInfoPage.fillPersonalDetails(chance.first(), chance.last()) // são funções do chance para gerar nomes aleatórios
+    myInfoPage.fillEmployeeDetails('EmployId', 'otherId', '123456', '2025-10-10')
+    myInfoPage.fillStatus()
+    myInfoPage.saveForm()
 
   })
 
-  it('Login - Fail', () => {
-    cy.visit('/auth/login')
-    cy.get(selectorsList.usernameField).type(userData.userFail.userName)
-    cy.get(selectorsList.passwordField).type(userData.userFail.password)
-    cy.get(selectorsList.loginButton).click()
-    cy.get(selectorsList.wrongCredentialAlert)
-  })
 })
