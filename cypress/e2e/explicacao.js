@@ -16,6 +16,18 @@
 // O arquivo .gitignore é um arquivo de texto simples que informa ao Git quais arquivos ou pastas você deseja ignorar.
 // cria-se um arquivo (new file) .gitignore na raiz do projeto, e dentro dele coloca-se o nome dos arquivos e pastas 
 // que deseja ignorar, no geral node_modules, packge-lock.json
+
+// GITHUB: para excluir um arquivo que já foi commitado, deve-se fazer o seguinte:
+// git rm --cached nome-do-arquivo
+// Passo a passo para comitar um arquivo no github:
+// git add . (para adicionar todos os arquivos)
+// git commit -m "comentário" (para commitar)
+// git push (para enviar para o github)   
+
+// Readme: é um arquivo de texto que contém informações sobre o projeto, como instalar, como rodar, etc.
+// Deve ser criado na raiz do projeto, com o nome README.md 
+// # é para título, ## é para subtítulo, * é para lista, ``` é para código, ![texto](link) é para imagem
+// é importante preencher com informações relevantes para quem for usar o projeto
  
 /*/
 // A classe nunca é a melhor forma de se usar, evite focar em textos como atributo, se tiver id é melhor
